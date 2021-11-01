@@ -4,6 +4,36 @@
   $name = $_SESSION['name'];
   $hobby = $_SESSION['email'];
   $gender = $_SESSION['gender'];
+/*  [関数ファイルの読み込み] 
+（途中省略） 
+*/
+    require(functions.php);
+    /*
+$dbh = [データベース接続関数]; 
+
+try{ 
+
+    $sql = "INSERT INTO user (email, name, gender) VALUE (:email, :name, :gender)"; 
+
+      [クエリ実行準備]; 
+
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR); 
+
+      [名前のプレースホルダーに値をバインド]; 
+
+      [性別のプレースホルダーに値をバインド]; 
+
+    $stmt->execute(); 
+
+      [DB切断]; 
+
+}catch (PDOException $e){ 
+
+    echo($e->getMessage()); 
+
+    die(); 
+
+}*/
 ?>
 
 <!DOCTYPE html>
