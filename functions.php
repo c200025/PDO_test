@@ -14,7 +14,7 @@ function db_conn() {
     try { 
 
        /* [データベース接続処理] */
-       PDO(DSN,DB_USER,DB_PASS);
+       $dbh = new PDO(DSN,DB_USER,DB_PASS);
 
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 

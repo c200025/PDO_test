@@ -2,33 +2,33 @@
   session_start();
 
   $name = $_SESSION['name'];
-  $hobby = $_SESSION['email'];
+  $email = $_SESSION['email'];
   $gender = $_SESSION['gender'];
 /*  [関数ファイルの読み込み] 
 （途中省略） 
 */
     require("functions.php");
     
-$dbh = db_conn(); 
+$pdo = db_conn(); 
 
 try{ 
 
     $sql = "INSERT INTO user (email, name, gender) VALUE (:email, :name, :gender)"; 
 
      /* [クエリ実行準備]; */
-
+    $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR); 
 
       /*[名前のプレースホルダーに値をバインド];*/ 
     $stmt->bindValue(':name', $name, PDO::PARAM_STR);
       /*[性別のプレースホルダーに値をバインド]; */
-/*    $stmt->bindValue(':gender', $gender, PDO::PARAM_INT);*/
+    $stmt->bindValue(':gender', $gender, PDO::PARAM_INT);
     $stmt->execute(); 
 
       /*[DB切断]*/
-      $dbh = null; 
+      $pdo = null; 
 
-      unset($dbh); ; 
+      unset($pdo); ; 
 
 }catch (PDOException $e){ 
 
